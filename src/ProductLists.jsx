@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import ProductItem from "./ProductItem";
 import "./ProductList.css";
-import "./App.css";
+
 const ProductLists = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ const ProductLists = () => {
   const [priceFilter, setPriceFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [sortOption, setSortOption] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("");
   const page = useRef(1);
   const limit = 30;
   const observer = useRef();
@@ -99,64 +99,66 @@ const ProductLists = () => {
   });
 
   return (
-    <div className="product-container">
-      <div className="filters-container">
-        <div className="filters">
-          <input
-            type="text"
-            placeholder="Search Products"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <select
-            value={priceFilter}
-            onChange={(e) => setPriceFilter(e.target.value)}
-          >
-            <option value="">Price</option>
-            <option value="50">Under 50</option>
-            <option value="100">Under 100</option>
-            <option value="200">Under 200</option>
-            <option value="500">Under 500</option>
-            <option value="1000">Under 1000</option>
-            <option value="1500">Under 1500</option>
-            <option value="2000">Under 2000</option>
-          </select>
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-          >
-            <option value="">Category</option>
-            <option value="smartphones">smartphones</option>
-            <option value="laptops">laptops</option>
-            <option value="fragrances">fragrances</option>
-            <option value="skincare">skincare</option>
-            <option value="groceries">groceries</option>
-            <option value="home-decoration">home-decoration</option>
-          </select>
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value="">Sort By</option>
-            <option value="price">Price</option>
-            <option value="title">Title</option>
-          </select>
-          <select
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >
-            <option value="">Values</option>
-            <option value="asc">low-to-High</option>
-            <option value="desc">High-to-low</option>
-          </select>
-        </div>
+    <div>
+      <div className="filters">
+        <input
+          type="text"
+          placeholder="Search Products"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select
+          value={priceFilter}
+          onChange={(e) => setPriceFilter(e.target.value)}
+        >
+          <option value="">Price</option>
+          <option value="50">Under 50</option>
+          <option value="100">Under 100</option>
+          <option value="200">Under 200</option>
+          <option value="500">Under 500</option>
+          <option value="1000">Under 1000</option>
+          <option value="1500">Under 1500</option>
+          <option value="2000">Under 2000</option>
+          {/* Add more options as needed */}
+        </select>
+        <select
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+        >
+          <option value="">Category</option>
+          <option value="smartphones">smartphones</option>
+          <option value="laptops">laptops</option>
+          <option value="fragrances">fragrances</option>
+          <option value="skincare">skincare</option>
+          <option value="groceries">groceries</option>
+          <option value="home-decoration">home-decoration</option>
+          {/* Add more options as needed */}
+        </select>
+        <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="">Sort By</option>
+          <option value="price">Price</option>
+          <option value="title">Title</option>
+        </select>
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="">Values</option>
+          <option value="asc">low-to-high</option>
+          <option value="desc">high-to-low</option>
+        </select>
       </div>
-      {sortedData.length > 0 &&
-        sortedData.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      {loading && <p>Loading...</p>}
-      {!loading && hasMore && <div ref={lastProductRef}></div>}
+      <div className="product-container">
+        {sortedData.length > 0 &&
+          sortedData.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        {loading && <p>Loading...</p>}
+        {!loading && hasMore && <div ref={lastProductRef}></div>}
+      </div>
     </div>
   );
 };

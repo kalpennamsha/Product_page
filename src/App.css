@@ -1,9 +1,3 @@
-/* App.css */
-
-/* .product-container {
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 .data{
   display: flex;
@@ -18,31 +12,53 @@ body{
   background-color:cadetblue;
 }
 
-
-/* .product {
-  flex: 1;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #a08585;
+/* .container {
+  display: flex;
 }
 
-.product:hover {
-  transform: scale(1.02);
-  background-color: rgba(236, 229, 229, 0.607);
+.slider {
+  width: 50%; 
+  height: 20px;
+  margin-right: 20px; 
+
 }
 
-.product img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
+.details {
+  width: 50%; 
 }
 
-button{
-  color: aquamarine;
-  background-color: black;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;;
-} */
+.box {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+ */
+ .container {
+  display: flex;
+}
+
+.slider {
+  width: 55%; /* Adjust the width of the slider as needed */
+  margin-right: 20px; /* Add spacing between the slider and details */
+}
+
+.slider .slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider .slick-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Adjust as needed */
+}
+
+.details {
+  width: 50%; /* Adjust the width of the details section as needed */
+}
+
+.box {
+  padding: 20px;
+  border-radius: 5px;
+}
