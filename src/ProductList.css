@@ -1,0 +1,24 @@
+.product-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 16px;
+ }
+ 
+ .product {
+   border: 1px solid #ddd;
+   padding: 16px;
+   margin-bottom: 16px;
+ }
+ 
+ .product img {
+   height: 200px;
+   width: 220px;
+  
+ }
+ 
+ .product:hover {
+  transform: scale(1.02);
+  background-color: rgba(236, 229, 229, 0.607);
+}
+
+
